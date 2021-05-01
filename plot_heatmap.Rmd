@@ -1,0 +1,122 @@
+---
+title: "Plot Heatmap"
+output: html_notebook
+---
+
+### Load package and data
+```{r message=FALSE, warning=FALSE}
+library(dplyr)
+library(lattice)
+library(readr)
+
+```
+
+### Plotting heatmap 
+```{r message=FALSE, warning=FALSE}
+library(viridisLite)
+coul <- viridis(200)
+
+simulation_result <- read_csv("384_384_simulation_result.csv")
+sim.df <- as.data.frame(simulation_result)
+
+min.z <- 0
+# max.z <- max(sim.df$collision_rate)
+max.z <-0.5
+steps <- seq(min.z,max.z,max.z/200)
+collision_384 <- levelplot(sim.df$collision_rate ~ sim.df$sort_cell_number*sim.df$number_of_pcr_index ,
+          xlab = "sort_cell_number",
+          ylab = "number_of_pcr_index",
+          main="384_384_Collision rate",
+          at = steps,
+          col.regions = coul)
+
+min.z <- 0
+# max.z <- max(sim.df$recovered_barcode)
+max.z <-20000
+steps <- seq(min.z,max.z,max.z/200)
+recoverd_384 <- levelplot(sim.df$recovered_barcode ~ sim.df$sort_cell_number*sim.df$number_of_pcr_index ,
+          xlab = "sort_cell_number",
+          ylab = "number_of_pcr_index",
+          main="384_384_Recovered_nuclei",
+          at = steps,
+          col.regions = coul)
+
+min.z <- 0
+max.z <- max(sim.df$cluster_per_nucleus)
+steps <- c(10,1000,10000,20000,40000,80000,160000,320000,640000,1280000,2560000,5120000,10240000,20480000,40960000,81920000,163840000,327680000,655360000)
+cluster_384 <- levelplot(sim.df$cluster_per_nucleus ~ sim.df$sort_cell_number*sim.df$number_of_pcr_index ,
+          xlab = "sort_cell_number",
+          ylab = "number_of_pcr_index",
+          main="384_384_Cluster_per_recovered_nucleus",
+          at = steps,
+          col.regions = coul)
+
+min.z <- 0
+max.z <- max(sim.df$total_nuclei)
+steps <- seq(min.z,max.z,max.z/200)
+min_cell_384 <- levelplot(sim.df$total_nuclei ~ sim.df$sort_cell_number*sim.df$number_of_pcr_index ,
+          xlab = "sort_cell_number",
+          ylab = "number_of_pcr_index",
+          main="384_384_Minimum_input_cell",
+          at = steps,
+          col.regions = coul)
+
+collision_384
+recoverd_384
+cluster_384
+min_cell_384
+```
+
+
+
+```{r message=FALSE, warning=FALSE}
+simulation_result <- read_csv("96_96_simulation_result.csv")
+sim.df <- as.data.frame(simulation_result)
+min.z <- 0
+# max.z <- max(sim.df$collision_rate)
+max.z <-0.5
+steps <- seq(min.z,max.z,max.z/200)
+collision_96 <- levelplot(sim.df$collision_rate ~ sim.df$sort_cell_number*sim.df$number_of_pcr_index ,
+          xlab = "sort_cell_number",
+          ylab = "number_of_pcr_index",
+          main="96_96_Collision rate",
+          at = steps,
+          col.regions = coul)
+
+min.z <- 0
+# max.z <- max(sim.df$recovered_barcode)
+max.z <-20000
+steps <- seq(min.z,max.z,max.z/200)
+recoverd_96 <- levelplot(sim.df$recovered_barcode ~ sim.df$sort_cell_number*sim.df$number_of_pcr_index ,
+          xlab = "sort_cell_number",
+          ylab = "number_of_pcr_index",
+          main="96_96_Recovered_nuclei",
+          at = steps,
+          col.regions = coul)
+
+min.z <- 0
+max.z <- max(sim.df$cluster_per_nucleus)
+steps <- c(10,1000,10000,20000,40000,80000,160000,320000,640000,1280000,2560000,5120000,10240000,20480000,40960000,81920000,163840000,327680000,655360000)
+cluster_96 <- levelplot(sim.df$cluster_per_nucleus ~ sim.df$sort_cell_number*sim.df$number_of_pcr_index ,
+          xlab = "sort_cell_number",
+          ylab = "number_of_pcr_index",
+          main="96_96_Cluster_per_recovered_nucleus",
+          at = steps,
+          col.regions = coul)
+
+min.z <- 0
+max.z <- max(sim.df$total_nuclei)
+steps <- seq(min.z,max.z,max.z/200)
+min_cell_96 <- levelplot(sim.df$total_nuclei ~ sim.df$sort_cell_number*sim.df$number_of_pcr_index ,
+          xlab = "sort_cell_number",
+          ylab = "number_of_pcr_index",
+          main="96_96_Minimum_input_cell",
+          at = steps,
+          col.regions = coul)
+
+collision_96
+recoverd_96
+cluster_96
+min_cell_96
+```
+
