@@ -15,4 +15,4 @@ For the __gen_simulate_data.py__, it repeats the run for a range of parameter an
 ### it take a long time to run, be aware.
 python ./gen_simulate_data.py
 ```
-The result will be stored in __simulation_result.csv__ . Data can be visulaized in the __plot_heatmap.R__ script. 
+The result will be stored in __simulation_result.csv__ . Data can be visulaized in the __plot_heatmap.Rmd__ script. 
