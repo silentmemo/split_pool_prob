@@ -16,3 +16,14 @@ For the __gen_simulate_data.py__, it repeats the run for a range of parameter an
 python ./gen_simulate_data.py
 ```
 The result will be stored in __simulation_result.csv__ . Data can be visulaized in the __plot_heatmap.Rmd__ script. 
+
+
+## Experiment with non-uniform distributions
+(non_uniform_distribution_prob branch)
+The original protocol requires sorting of the nuclei into wells. Sorting ensues a uniform distribution of the nuclei into each well. This uniform distribution allows a consistent probability of sampling unique index combination. 
+
+What outcome should we expect if non-uniform distribution occurs when distributing the nuclei to barcodes, in the first or second or first-and-second nuclei distribution steps? 
+
+We can model the distribution as 1. normal distribution or 2. zero-inflated normal distribution, and calculate the overall duplication rates and other metrics. 
+
+The technical reason behind this exploration is to explore the possibility of skipping the sorting step, which 1. may cause changes to chromatin state, 2. leads to degradation to the chromatin, 3. time consuming. So if possible, we should avoid FACS sorting nuclei. Moreover,  faster processing allows higher throughput, which is the goal of single-cell experiment. Winning in numbers. 
