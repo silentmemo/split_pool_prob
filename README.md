@@ -26,4 +26,8 @@ What outcome should we expect if non-uniform distribution occurs when distributi
 
 We can model the distribution as 1. normal distribution or 2. zero-inflated normal distribution, and calculate the overall duplication rates and other metrics. 
 
-The technical reason behind this exploration is to explore the possibility of skipping the sorting step, which 1. may cause changes to chromatin state, 2. leads to degradation to the chromatin, 3. time consuming. So if possible, we should avoid FACS sorting nuclei. Moreover,  faster processing allows higher throughput, which is the goal of single-cell experiment. Winning in numbers. 
+The technical reason behind this exploration is to explore the possibility of skipping the sorting step, which 1. may cause changes to chromatin state, 2. leads to degradation to the chromatin, 3. time consuming. So if possible, we should avoid FACS sorting nuclei. Moreover,  faster processing allows higher throughput, which is the goal of single-cell experiment. Winning in numbers.
+
+## TODOs
+1. the simulation metrics to test in the non-uniform distribution.
+2. summarize the compare and contrast of uniform vs non-uniform
