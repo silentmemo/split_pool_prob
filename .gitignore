@@ -3,3 +3,4 @@
 .RData
 .Ruserdata
 split_pool_prob.Rproj
+*.json
